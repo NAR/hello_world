@@ -1,5 +1,5 @@
 orbs:
-  elixir: coletiv/elixir@0.0.22
+  elixir: coletiv/elixir@0.1.0
 version: 2.1
 workflows:
   elixir-build-test-minimal:
