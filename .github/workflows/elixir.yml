@@ -22,7 +22,15 @@ jobs:
       run: mix credo
     - name: Run Tests with coverage
       run: mix coveralls.html
+    - uses: actions/upload-artifact@v1
+      with:
+        name: coverage
+        path: cover
     - name: Generate documentation
       run: mix docs
-    - name: Run dialyzer checks
-      run: mix dialyzer --halt-exit-status
+    - uses: actions/upload-artifact@v1
+      with:
+        name: docs
+        path: doc
+#    - name: Run dialyzer checks
+#      run: mix dialyzer --halt-exit-status
