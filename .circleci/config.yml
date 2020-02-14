@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/elixir:1.8.2
+      - image: circleci/elixir:1.9.4
         environment:
           MIX_ENV: test
 
@@ -38,7 +38,7 @@ jobs:
 
   dialyzer:
     docker:
-      - image: circleci/elixir:1.8.2
+      - image: circleci/elixir:1.9.4
         environment:
           MIX_ENV: test
 
@@ -54,7 +54,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/elixir:1.8.2
+      - image: circleci/elixir:1.9.4
 
     steps:
       - checkout
@@ -68,7 +68,7 @@ jobs:
 
   generate_documentation:
     docker:
-      - image: circleci/elixir:1.8.2
+      - image: circleci/elixir:1.9.4
         environment:
           MIX_ENV: test
 
@@ -84,7 +84,7 @@ jobs:
 
   format_check:
     docker:
-      - image: circleci/elixir:1.8.2
+      - image: circleci/elixir:1.9.4
         environment:
           MIX_ENV: test
 
