@@ -31,9 +31,10 @@ defmodule HelloWorld.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:excoveralls, "~> 0.10", only: :test},
-      {:dialyxir, "~> 1.0.0-rc.4", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.19", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.2", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.12", only: :test},
+      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.21", only: [:dev, :test], runtime: false}
     ]
   end
 end

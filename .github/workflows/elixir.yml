@@ -16,5 +16,13 @@ jobs:
         otp-version: 22.2 # Define the OTP version [required]
     - name: Install Dependencies
       run: mix deps.get
-    - name: Run Tests
-      run: mix test
+    - name: Run format check
+      run: mix format --check-formatted
+    - name: Run credo checks
+      run: mix credo
+    - name: Run Tests with coverage
+      run: mix coveralls.html
+    - name: Generate documentation
+      run: mix docs
+    - name: Run dialyzer checks
+      run: mix dialyzer --halt-exit-status

@@ -93,6 +93,22 @@ jobs:
 
       - run: mix format --check-formatted
 
+  credo:
+    docker:
+      - image: circleci/elixir:1.9.4
+        environment:
+          MIX_ENV: test
+
+    steps:
+      - checkout
+      - run: echo "$OTP_VERSION $ELIXIR_VERSION" > .version_file
+      - restore_cache:
+          keys:
+            - plt-cache-{{ checksum ".version_file" }}-{{ checksum "mix.lock" }}
+      - run:
+          name: Execute credo
+          command: mix credo
+
 workflows:
   version: 2
   build_and_test:
@@ -108,6 +124,9 @@ workflows:
           requires:
             - build
       - test:
+          requires:
+            - build
+      - credo:
           requires:
             - build
 
